@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IsPackable>false</IsPackable>
+		<PreserveCompilationContext>true</PreserveCompilationContext>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentAssertions" Version="6.12.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+		<PackageReference Include="NUnit" Version="4.0.1" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\FiscalDocuments.API\FiscalDocuments.API.csproj" />
+	</ItemGroup>
+
+	<!-- Copiar deps.json automaticamente após build -->
+	<Target Name="CopyDepsFiles" AfterTargets="Build" Condition="Exists('..\..\src\FiscalDocuments.API\bin\$(Configuration)\net8.0\FiscalDocuments.API.deps.json')">
+		<Copy SourceFiles="..\..\src\FiscalDocuments.API\bin\$(Configuration)\net8.0\FiscalDocuments.API.deps.json"
+		      DestinationFiles="$(OutDir)testhost.deps.json"
+		      SkipUnchangedFiles="true" />
+		<Message Text="Copied testhost.deps.json for integration tests" Importance="high" />
+	</Target>
+
+</Project>

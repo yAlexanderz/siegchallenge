@@ -1,0 +1,91 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A1A1A1A1-A1A1-A1A1-A1A1-A1A1A1A1A1A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B2B2B2B2-B2B2-B2B2-B2B2-B2B2B2B2B2B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalDocuments.Domain", "src\FiscalDocuments.Domain\FiscalDocuments.Domain.csproj", "{C3C3C3C3-C3C3-C3C3-C3C3-C3C3C3C3C3C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalDocuments.Application", "src\FiscalDocuments.Application\FiscalDocuments.Application.csproj", "{D4D4D4D4-D4D4-D4D4-D4D4-D4D4D4D4D4D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalDocuments.API", "src\FiscalDocuments.API\FiscalDocuments.API.csproj", "{F6F6F6F6-F6F6-F6F6-F6F6-F6F6F6F6F6F6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C62227DA-9B0B-FB46-7AF4-67581D32145A} = {C62227DA-9B0B-FB46-7AF4-67581D32145A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalDocuments.Worker", "src\FiscalDocuments.Worker\FiscalDocuments.Worker.csproj", "{A7A7A7A7-A7A7-A7A7-A7A7-A7A7A7A7A7A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalDocuments.UnitTests", "tests\FiscalDocuments.UnitTests\FiscalDocuments.UnitTests.csproj", "{B8B8B8B8-B8B8-B8B8-B8B8-B8B8B8B8B8B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalDocuments.IntegrationTests", "tests\FiscalDocuments.IntegrationTests\FiscalDocuments.IntegrationTests.csproj", "{C9C9C9C9-C9C9-C9C9-C9C9-C9C9C9C9C9C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalDocuments.ArchitectureTests", "tests\FiscalDocuments.ArchitectureTests\FiscalDocuments.ArchitectureTests.csproj", "{D0D0D0D0-D0D0-D0D0-D0D0-D0D0D0D0D0D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalDocuments.LoadTests", "tests\FiscalDocuments.LoadTests\FiscalDocuments.LoadTests.csproj", "{E1E1E1E1-E1E1-E1E1-E1E1-E1E1E1E1E1E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalDocuments.Infrastructure", "src\FiscalDocuments.Infrastructure\FiscalDocuments.Infrastructure.csproj", "{C62227DA-9B0B-FB46-7AF4-67581D32145A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3C3C3C3-C3C3-C3C3-C3C3-C3C3C3C3C3C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3C3C3C3-C3C3-C3C3-C3C3-C3C3C3C3C3C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3C3C3C3-C3C3-C3C3-C3C3-C3C3C3C3C3C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3C3C3C3-C3C3-C3C3-C3C3-C3C3C3C3C3C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4D4D4D4-D4D4-D4D4-D4D4-D4D4D4D4D4D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4D4D4D4-D4D4-D4D4-D4D4-D4D4D4D4D4D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4D4D4D4-D4D4-D4D4-D4D4-D4D4D4D4D4D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D4D4D4-D4D4-D4D4-D4D4-D4D4D4D4D4D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6F6F6F6-F6F6-F6F6-F6F6-F6F6F6F6F6F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F6F6F6-F6F6-F6F6-F6F6-F6F6F6F6F6F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F6F6F6-F6F6-F6F6-F6F6-F6F6F6F6F6F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6F6F6F6-F6F6-F6F6-F6F6-F6F6F6F6F6F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7A7A7A7-A7A7-A7A7-A7A7-A7A7A7A7A7A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7A7A7A7-A7A7-A7A7-A7A7-A7A7A7A7A7A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7A7A7A7-A7A7-A7A7-A7A7-A7A7A7A7A7A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7A7A7A7-A7A7-A7A7-A7A7-A7A7A7A7A7A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8B8B8B8-B8B8-B8B8-B8B8-B8B8B8B8B8B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8B8B8B8-B8B8-B8B8-B8B8-B8B8B8B8B8B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8B8B8B8-B8B8-B8B8-B8B8-B8B8B8B8B8B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8B8B8B8-B8B8-B8B8-B8B8-B8B8B8B8B8B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C9C9C9-C9C9-C9C9-C9C9-C9C9C9C9C9C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C9C9C9-C9C9-C9C9-C9C9-C9C9C9C9C9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C9C9C9-C9C9-C9C9-C9C9-C9C9C9C9C9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C9C9C9-C9C9-C9C9-C9C9-C9C9C9C9C9C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0D0D0D0-D0D0-D0D0-D0D0-D0D0D0D0D0D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0D0D0D0-D0D0-D0D0-D0D0-D0D0D0D0D0D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0D0D0D0-D0D0-D0D0-D0D0-D0D0D0D0D0D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0D0D0D0-D0D0-D0D0-D0D0-D0D0D0D0D0D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1E1E1E1-E1E1-E1E1-E1E1-E1E1E1E1E1E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1E1E1E1-E1E1-E1E1-E1E1-E1E1E1E1E1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1E1E1E1-E1E1-E1E1-E1E1-E1E1E1E1E1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1E1E1E1-E1E1-E1E1-E1E1-E1E1E1E1E1E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C62227DA-9B0B-FB46-7AF4-67581D32145A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C62227DA-9B0B-FB46-7AF4-67581D32145A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C62227DA-9B0B-FB46-7AF4-67581D32145A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C62227DA-9B0B-FB46-7AF4-67581D32145A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C3C3C3C3-C3C3-C3C3-C3C3-C3C3C3C3C3C3} = {A1A1A1A1-A1A1-A1A1-A1A1-A1A1A1A1A1A1}
+		{D4D4D4D4-D4D4-D4D4-D4D4-D4D4D4D4D4D4} = {A1A1A1A1-A1A1-A1A1-A1A1-A1A1A1A1A1A1}
+		{F6F6F6F6-F6F6-F6F6-F6F6-F6F6F6F6F6F6} = {A1A1A1A1-A1A1-A1A1-A1A1-A1A1A1A1A1A1}
+		{A7A7A7A7-A7A7-A7A7-A7A7-A7A7A7A7A7A7} = {A1A1A1A1-A1A1-A1A1-A1A1-A1A1A1A1A1A1}
+		{B8B8B8B8-B8B8-B8B8-B8B8-B8B8B8B8B8B8} = {B2B2B2B2-B2B2-B2B2-B2B2-B2B2B2B2B2B2}
+		{C9C9C9C9-C9C9-C9C9-C9C9-C9C9C9C9C9C9} = {B2B2B2B2-B2B2-B2B2-B2B2-B2B2B2B2B2B2}
+		{D0D0D0D0-D0D0-D0D0-D0D0-D0D0D0D0D0D0} = {B2B2B2B2-B2B2-B2B2-B2B2-B2B2B2B2B2B2}
+		{E1E1E1E1-E1E1-E1E1-E1E1-E1E1E1E1E1E1} = {B2B2B2B2-B2B2-B2B2-B2B2-B2B2B2B2B2B2}
+		{C62227DA-9B0B-FB46-7AF4-67581D32145A} = {A1A1A1A1-A1A1-A1A1-A1A1-A1A1A1A1A1A1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D780EBC-B194-41E8-AE64-74376D898FD4}
+	EndGlobalSection
+EndGlobal
