@@ -52,17 +52,17 @@ API REST profissional para upload, armazenamento, processamento e gerenciamento 
 │           FiscalDocuments.API               │
 │         (Controllers, Middleware)           │
 └─────────────────┬───────────────────────────┘
-&nbsp;                 │
+                  │
 ┌─────────────────▼───────────────────────────┐
 │       FiscalDocuments.Application           │
 │  (Commands, Queries, Handlers, DTOs)        │
 └─────────────────┬───────────────────────────┘
-&nbsp;                 │
+                  │
 ┌─────────────────▼───────────────────────────┐
 │         FiscalDocuments.Domain              │
 │    (Entities, Interfaces, Events)           │
 └─────────────────△───────────────────────────┘
-&nbsp;                 │
+                  │
 ┌─────────────────┴───────────────────────────┐
 │      FiscalDocuments.Infrastructure         │
 │  (Repositories, DbContext, RabbitMQ)        │
@@ -108,30 +108,30 @@ API REST profissional para upload, armazenamento, processamento e gerenciamento 
 ### Obrigatórios
 
 1. **.NET 8 SDK**
-&nbsp;  ```bash
-&nbsp;  # Verificar instalação
-&nbsp;  dotnet --version
-&nbsp;  # Deve retornar 8.0.x ou superior
-&nbsp;  ```
+```bash
+# Verificar instalação
+dotnet --version
+# Deve retornar 8.0.x ou superior
+```
 
 2. **SQL Server** (LocalDB, Express ou completo)
-&nbsp;  ```bash
-&nbsp;  # LocalDB (incluído no Visual Studio)
-&nbsp;  # OU SQL Server Express: https://www.microsoft.com/sql-server/sql-server-downloads
-&nbsp;  ```
+```bash
+# LocalDB (incluído no Visual Studio)
+# OU SQL Server Express: https://www.microsoft.com/sql-server/sql-server-downloads
+```
 
 3. **RabbitMQ**
-&nbsp;  ```bash
-&nbsp;  # Windows (Chocolatey)
-&nbsp;  choco install rabbitmq
-&nbsp;  
-&nbsp;  # Windows (Installer)
-&nbsp;  # Download: https://www.rabbitmq.com/install-windows.html
-&nbsp;  
-&nbsp;  # Verificar se está rodando
-&nbsp;  # Acessar: http://localhost:15672
-&nbsp;  # Usuário padrão: guest/guest
-&nbsp;  ```
+```bash
+# Windows (Chocolatey)
+choco install rabbitmq
+
+# Windows (Installer)
+# Download: https://www.rabbitmq.com/install-windows.html
+
+# Verificar se está rodando
+# Acessar: http://localhost:15672
+# Usuário padrão: guest/guest
+```
 
 ## 🚀 Como Executar Localmente (SEM Docker)
 
@@ -148,12 +148,12 @@ Edite o arquivo `src/FiscalDocuments.API/appsettings.json`:
 
 ```json
 {
-&nbsp; "ConnectionStrings": {
-&nbsp;   "DefaultConnection": "Server=(localdb)\\\\mssqllocaldb;Database=FiscalDocumentsDb;Trusted_Connection=True;TrustServerCertificate=True;"
-&nbsp; },
-&nbsp; "RabbitMQ": {
-&nbsp;   "ConnectionString": "amqp://guest:guest@localhost:5672"
-&nbsp; }
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=FiscalDocumentsDb;Trusted_Connection=True;TrustServerCertificate=True;"
+  },
+  "RabbitMQ": {
+    "ConnectionString": "amqp://guest:guest@localhost:5672"
+  }
 }
 ```
 
@@ -226,9 +226,9 @@ O Worker ficará escutando a fila do RabbitMQ e processando eventos.
 
 ```bash
 curl -X POST "http://localhost:5000/api/v1/fiscaldocuments/upload" \
-&nbsp; -H "accept: application/json" \
-&nbsp; -H "Content-Type: multipart/form-data" \
-&nbsp; -F "XmlFile=@caminho/para/seu/arquivo.xml"
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "XmlFile=@caminho/para/seu/arquivo.xml"
 ```
 
 #### Arquivo XML de Teste (NFe)
@@ -238,29 +238,29 @@ Crie um arquivo `nfe-teste.xml`:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <nfeProc xmlns="http://www.portalfiscal.inf.br/nfe">
-&nbsp;   <NFe>
-&nbsp;       <infNFe Id="NFe35210112345678901234550010000000011234567890">
-&nbsp;           <ide>
-&nbsp;               <dhEmi>2025-01-15T10:30:00-03:00</dhEmi>
-&nbsp;           </ide>
-&nbsp;           <emit>
-&nbsp;               <CNPJ>12345678901234</CNPJ>
-&nbsp;               <xNome>Empresa Teste LTDA</xNome>
-&nbsp;               <enderEmit>
-&nbsp;                   <UF>PE</UF>
-&nbsp;               </enderEmit>
-&nbsp;           </emit>
-&nbsp;           <dest>
-&nbsp;               <CNPJ>98765432109876</CNPJ>
-&nbsp;               <xNome>Cliente Teste SA</xNome>
-&nbsp;           </dest>
-&nbsp;           <total>
-&nbsp;               <ICMSTot>
-&nbsp;                   <vNF>1500.00</vNF>
-&nbsp;               </ICMSTot>
-&nbsp;           </total>
-&nbsp;       </infNFe>
-&nbsp;   </NFe>
+    <NFe>
+        <infNFe Id="NFe35210112345678901234550010000000011234567890">
+            <ide>
+                <dhEmi>2025-01-15T10:30:00-03:00</dhEmi>
+            </ide>
+            <emit>
+                <CNPJ>12345678901234</CNPJ>
+                <xNome>Empresa Teste LTDA</xNome>
+                <enderEmit>
+                    <UF>PE</UF>
+                </enderEmit>
+            </emit>
+            <dest>
+                <CNPJ>98765432109876</CNPJ>
+                <xNome>Cliente Teste SA</xNome>
+            </dest>
+            <total>
+                <ICMSTot>
+                    <vNF>1500.00</vNF>
+                </ICMSTot>
+            </total>
+        </infNFe>
+    </NFe>
 </nfeProc>
 ```
 
@@ -286,16 +286,16 @@ Body: XmlFile (arquivo .xml)
 **Response 200 OK:**
 ```json
 {
-&nbsp; "documentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-&nbsp; "documentKey": "35210112345678901234550010000000011234567890",
-&nbsp; "message": "Documento processado com sucesso",
-&nbsp; "isNewDocument": true
+  "documentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "documentKey": "35210112345678901234550010000000011234567890",
+  "message": "Documento processado com sucesso",
+  "isNewDocument": true
 }
 ```
 
 ### 2. Listar Documentos (Paginado)
 
-**GET** `/?pageNumber=1&pageSize=10&startDate=2025-01-01&cnpj=12345678901234&uf=SP`
+**GET** `/?pageNumber=1&pageSize=10&startDate=2025-01-01&cnpj=12345678901234&uf=PE`
 
 **Query Parameters:**
 - `pageNumber` (int, opcional): Número da página (padrão: 1)
@@ -308,31 +308,31 @@ Body: XmlFile (arquivo .xml)
 **Response 200 OK:**
 ```json
 {
-&nbsp; "data": [
-&nbsp;   {
-&nbsp;     "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-&nbsp;     "documentKey": "35210112345678901234550010000000011234567890",
-&nbsp;     "type": 1,
-&nbsp;     "typeDescription": "NFe",
-&nbsp;     "cnpjMasked": "12.***.***/**34",
-&nbsp;     "uf": "PE",
-&nbsp;     "issueDate": "2025-01-15T10:30:00Z",
-&nbsp;     "totalValue": 1500.00,
-&nbsp;     "issuerName": "Empresa Teste LTDA",
-&nbsp;     "recipientName": "Cliente Teste SA",
-&nbsp;     "recipientCnpjMasked": "98.***.***/**76",
-&nbsp;     "status": 3,
-&nbsp;     "statusDescription": "Processed",
-&nbsp;     "createdAt": "2025-01-15T13:45:00Z",
-&nbsp;     "updatedAt": "2025-01-15T13:45:00Z"
-&nbsp;   }
-&nbsp; ],
-&nbsp; "pageNumber": 1,
-&nbsp; "pageSize": 10,
-&nbsp; "totalCount": 45,
-&nbsp; "totalPages": 5,
-&nbsp; "hasPreviousPage": false,
-&nbsp; "hasNextPage": true
+  "data": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "documentKey": "35210112345678901234550010000000011234567890",
+      "type": 1,
+      "typeDescription": "NFe",
+      "cnpjMasked": "12.***.***/**34",
+      "uf": "PE",
+      "issueDate": "2025-01-15T10:30:00Z",
+      "totalValue": 1500.00,
+      "issuerName": "Empresa Teste LTDA",
+      "recipientName": "Cliente Teste SA",
+      "recipientCnpjMasked": "98.***.***/**76",
+      "status": 3,
+      "statusDescription": "Processed",
+      "createdAt": "2025-01-15T13:45:00Z",
+      "updatedAt": "2025-01-15T13:45:00Z"
+    }
+  ],
+  "pageNumber": 1,
+  "pageSize": 10,
+  "totalCount": 45,
+  "totalPages": 5,
+  "hasPreviousPage": false,
+  "hasNextPage": true
 }
 ```
 
@@ -343,30 +343,30 @@ Body: XmlFile (arquivo .xml)
 **Response 200 OK:**
 ```json
 {
-&nbsp; "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-&nbsp; "documentKey": "35210112345678901234550010000000011234567890",
-&nbsp; "type": 1,
-&nbsp; "typeDescription": "NFe",
-&nbsp; "cnpjMasked": "12.***.***/**34",
-&nbsp; "uf": "PE",
-&nbsp; "issueDate": "2025-01-15T10:30:00Z",
-&nbsp; "totalValue": 1500.00,
-&nbsp; "issuerName": "Empresa Teste LTDA",
-&nbsp; "recipientName": "Cliente Teste SA",
-&nbsp; "recipientCnpjMasked": "98.***.***/**76",
-&nbsp; "status": 3,
-&nbsp; "statusDescription": "Processed",
-&nbsp; "xmlContent": "<?xml version=\"1.0\"...",
-&nbsp; "processingNotes": null,
-&nbsp; "createdAt": "2025-01-15T13:45:00Z",
-&nbsp; "updatedAt": "2025-01-15T13:45:00Z"
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "documentKey": "35210112345678901234550010000000011234567890",
+  "type": 1,
+  "typeDescription": "NFe",
+  "cnpjMasked": "12.***.***/**34",
+  "uf": "PE",
+  "issueDate": "2025-01-15T10:30:00Z",
+  "totalValue": 1500.00,
+  "issuerName": "Empresa Teste LTDA",
+  "recipientName": "Cliente Teste SA",
+  "recipientCnpjMasked": "98.***.***/**76",
+  "status": 3,
+  "statusDescription": "Processed",
+  "xmlContent": "<?xml version=\"1.0\"...",
+  "processingNotes": null,
+  "createdAt": "2025-01-15T13:45:00Z",
+  "updatedAt": "2025-01-15T13:45:00Z"
 }
 ```
 
 **Response 404 Not Found:**
 ```json
 {
-&nbsp; "message": "Documento com ID {id} não encontrado"
+  "message": "Documento com ID {id} não encontrado"
 }
 ```
 
@@ -395,37 +395,37 @@ Body: XmlFile (arquivo .xml)
 ### Estratégias Implementadas
 
 1. **Mascaramento de CNPJ em Logs e Respostas**
-&nbsp;  ```csharp
-&nbsp;  // CNPJ original: 12345678901234
-&nbsp;  // CNPJ mascarado: 12.***.***/**34
-&nbsp;  ```
-&nbsp;  
-&nbsp;  - Logs estruturados sempre usam CNPJ mascarado
-&nbsp;  - DTOs de resposta retornam `cnpjMasked` e `recipientCnpjMasked`
-&nbsp;  - CNPJ completo armazenado apenas no banco de dados
+```csharp
+// CNPJ original: 12345678901234
+// CNPJ mascarado: 12.***.***/**34
+```
+
+- Logs estruturados sempre usam CNPJ mascarado
+- DTOs de resposta retornam `cnpjMasked` e `recipientCnpjMasked`
+- CNPJ completo armazenado apenas no banco de dados
 
 2. **Logging Estruturado com Serilog**
-&nbsp;  ```csharp
-&nbsp;  _logger.LogInformation(
-&nbsp;      "Documento criado. DocumentId: {DocumentId}, CNPJ: {Cnpj}",
-&nbsp;      document.Id,
-&nbsp;      MaskCnpj(document.Cnpj) // Sempre mascarado
-&nbsp;  );
-&nbsp;  ```
+```csharp
+_logger.LogInformation(
+    "Documento criado. DocumentId: {DocumentId}, CNPJ: {Cnpj}",
+    document.Id,
+    MaskCnpj(document.Cnpj) // Sempre mascarado
+);
+```
 
 3. **Configurações Sensíveis no appsettings.json**
-&nbsp;  - Connection strings nunca commitadas com credenciais reais
-&nbsp;  - Uso de User Secrets em Development
-&nbsp;  - Variáveis de ambiente em Production
+- Connection strings nunca commitadas com credenciais reais
+- Uso de User Secrets em Development
+- Variáveis de ambiente em Production
 
 4. **Conteúdo XML Completo**
-&nbsp;  - Disponível apenas no endpoint de detalhes (GET /{id})
-&nbsp;  - Não exposto em listagens
-&nbsp;  - Logs nunca incluem conteúdo XML completo
+- Disponível apenas no endpoint de detalhes (GET /{id})
+- Não exposto em listagens
+- Logs nunca incluem conteúdo XML completo
 
 5. **HTTPS Obrigatório em Produção**
-&nbsp;  - Certificados SSL/TLS
-&nbsp;  - Redirecionamento HTTP → HTTPS
+- Certificados SSL/TLS
+- Redirecionamento HTTP → HTTPS
 
 ### Exemplo de Configuração de User Secrets
 
@@ -446,34 +446,34 @@ dotnet user-secrets set "RabbitMQ:ConnectionString" "amqp://user:pass@host:5672"
 A API garante idempotência através de **hash SHA256 do conteúdo XML**:
 
 1. **Cálculo do Hash**
-&nbsp;  ```csharp
-&nbsp;  using var sha256 = SHA256.Create();
-&nbsp;  var hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(xmlContent));
-&nbsp;  var xmlHash = Convert.ToBase64String(hashBytes);
-&nbsp;  ```
+```csharp
+using var sha256 = SHA256.Create();
+var hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(xmlContent));
+var xmlHash = Convert.ToBase64String(hashBytes);
+```
 
 2. **Verificação de Duplicidade**
-&nbsp;  - Antes de criar um documento, verifica se já existe um com o mesmo hash
-&nbsp;  - Se existir, retorna o documento existente com `isNewDocument: false`
-&nbsp;  - Garante que o mesmo XML nunca seja processado duas vezes
+- Antes de criar um documento, verifica se já existe um com o mesmo hash
+- Se existir, retorna o documento existente com `isNewDocument: false`
+- Garante que o mesmo XML nunca seja processado duas vezes
 
 3. **Dupla Proteção**
-&nbsp;  - **Por Hash (XmlHash)**: Conteúdo idêntico
-&nbsp;  - **Por Chave de Documento (DocumentKey)**: Mesma chave de acesso fiscal
+- **Por Hash (XmlHash)**: Conteúdo idêntico
+- **Por Chave de Documento (DocumentKey)**: Mesma chave de acesso fiscal
 
 4. **Benefícios**
-&nbsp;  - Retry seguro em caso de timeout
-&nbsp;  - Proteção contra upload acidental duplicado
-&nbsp;  - Consistência de dados
+- Retry seguro em caso de timeout
+- Proteção contra upload acidental duplicado
+- Consistência de dados
 
 ### Exemplo de Resposta Idempotente
 
 ```json
 {
-&nbsp; "documentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-&nbsp; "documentKey": "35210112345678901234550010000000011234567890",
-&nbsp; "message": "Documento já processado anteriormente (idempotência garantida)",
-&nbsp; "isNewDocument": false
+  "documentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "documentKey": "35210112345678901234550010000000011234567890",
+  "message": "Documento já processado anteriormente (idempotência garantida)",
+  "isNewDocument": false
 }
 ```
 
@@ -484,57 +484,57 @@ A API garante idempotência através de **hash SHA256 do conteúdo XML**:
 O consumidor RabbitMQ implementa múltiplas camadas de resiliência:
 
 1. **Retry com Backoff Exponencial (Polly)**
-&nbsp;  ```csharp
-&nbsp;  var retryPolicy = Policy
-&nbsp;      .Handle<BrokerUnreachableException>()
-&nbsp;      .WaitAndRetryAsync(
-&nbsp;          5, // Máximo de 5 tentativas
-&nbsp;          retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
-&nbsp;          // 2s, 4s, 8s, 16s, 32s
-&nbsp;      );
-&nbsp;  ```
+```csharp
+var retryPolicy = Policy
+    .Handle<BrokerUnreachableException>()
+    .WaitAndRetryAsync(
+        5, // Máximo de 5 tentativas
+        retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
+        // 2s, 4s, 8s, 16s, 32s
+    );
+```
 
 2. **Reconexão Automática**
-&nbsp;  ```csharp
-&nbsp;  var factory = new ConnectionFactory
-&nbsp;  {
-&nbsp;      AutomaticRecoveryEnabled = true,
-&nbsp;      NetworkRecoveryInterval = TimeSpan.FromSeconds(10)
-&nbsp;  };
-&nbsp;  ```
+```csharp
+var factory = new ConnectionFactory
+{
+    AutomaticRecoveryEnabled = true,
+    NetworkRecoveryInterval = TimeSpan.FromSeconds(10)
+};
+```
 
 3. **Prefetch e Manual ACK**
-&nbsp;  ```csharp
-&nbsp;  _channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
-&nbsp;  // Processa uma mensagem por vez
-&nbsp;  
-&nbsp;  _channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
-&nbsp;  // ACK manual após processamento bem-sucedido
-&nbsp;  ```
+```csharp
+_channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
+// Processa uma mensagem por vez
+
+_channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+// ACK manual após processamento bem-sucedido
+```
 
 4. **Dead Letter Queue (DLQ)**
-&nbsp;  ```csharp
-&nbsp;  // Após 3 falhas, rejeita e envia para DLQ
-&nbsp;  if (retryCount >= maxRetries)
-&nbsp;  {
-&nbsp;      _channel.BasicNack(deliveryTag: ea.DeliveryTag, 
-&nbsp;                        multiple: false, 
-&nbsp;                        requeue: false);
-&nbsp;  }
-&nbsp;  ```
+```csharp
+// Após 3 falhas, rejeita e envia para DLQ
+if (retryCount >= maxRetries)
+{
+    _channel.BasicNack(deliveryTag: ea.DeliveryTag, 
+                      multiple: false, 
+                      requeue: false);
+}
+```
 
 5. **Circuit Breaker (Futuro)**
-&nbsp;  - Planejado para versões futuras usando Polly
+- Planejado para versões futuras usando Polly
 
 ### Entity Framework - Resiliência de Conexão
 
 ```csharp
 options.UseSqlServer(connectionString, sqlOptions =>
 {
-&nbsp;   sqlOptions.EnableRetryOnFailure(
-&nbsp;       maxRetryCount: 5,
-&nbsp;       maxRetryDelay: TimeSpan.FromSeconds(30),
-&nbsp;       errorNumbersToAdd: null);
+    sqlOptions.EnableRetryOnFailure(
+        maxRetryCount: 5,
+        maxRetryDelay: TimeSpan.FromSeconds(30),
+        errorNumbersToAdd: null);
 });
 ```
 
@@ -613,13 +613,13 @@ dotnet run
 └─────────────────────────────┴──────────┴─────────┘
 
 Latency:
-&nbsp; Min:  45ms
-&nbsp; Mean: 120ms
-&nbsp; Max:  850ms
-&nbsp; p50:  105ms
-&nbsp; p75:  145ms
-&nbsp; p95:  320ms
-&nbsp; p99:  650ms
+  Min:  45ms
+  Mean: 120ms
+  Max:  850ms
+  p50:  105ms
+  p75:  145ms
+  p95:  320ms
+  p99:  650ms
 ```
 
 ## 🏛 Testes de Arquitetura
@@ -634,28 +634,28 @@ dotnet test
 ### Validações Implementadas
 
 1. **Domain não depende de outras camadas**
-&nbsp;  ```csharp
-&nbsp;  Domain.ShouldNotHaveDependencyOnOtherLayers()
-&nbsp;  ```
+```csharp
+Domain.ShouldNotHaveDependencyOnOtherLayers()
+```
 
 2. **Application não depende de Infrastructure/API**
-&nbsp;  ```csharp
-&nbsp;  Application.ShouldNotHaveDependencyOnInfrastructureOrApi()
-&nbsp;  ```
+```csharp
+Application.ShouldNotHaveDependencyOnInfrastructureOrApi()
+```
 
 3. **Infrastructure não depende de API**
-&nbsp;  ```csharp
-&nbsp;  Infrastructure.ShouldNotHaveDependencyOnApi()
-&nbsp;  ```
+```csharp
+Infrastructure.ShouldNotHaveDependencyOnApi()
+```
 
 4. **Convenções de Nomenclatura**
-&nbsp;  - Controllers terminam com "Controller"
-&nbsp;  - Handlers terminam com "Handler"
-&nbsp;  - Repositories implementam IRepository
+- Controllers terminam com "Controller"
+- Handlers terminam com "Handler"
+- Repositories implementam IRepository
 
 5. **Organização de Namespaces**
-&nbsp;  - Entidades em Domain.Entities
-&nbsp;  - Repositórios em Infrastructure.Repositories
+- Entidades em Domain.Entities
+- Repositórios em Infrastructure.Repositories
 
 ### Benefícios
 
@@ -751,7 +751,7 @@ dotnet test
 
 ```csharp
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-&nbsp;   .AddJwtBearer(options => { /* ... */ });
+    .AddJwtBearer(options => { /* ... */ });
 ```
 
 #### 2. Cache Distribuído
@@ -762,7 +762,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 ```csharp
 builder.Services.AddStackExchangeRedisCache(options =>
 {
-&nbsp;   options.Configuration = "localhost:6379";
+    options.Configuration = "localhost:6379";
 });
 ```
 
@@ -774,8 +774,8 @@ builder.Services.AddStackExchangeRedisCache(options =>
 
 ```csharp
 builder.Services.AddOpenTelemetry()
-&nbsp;   .WithTracing(builder => builder.AddAspNetCoreInstrumentation())
-&nbsp;   .WithMetrics(builder => builder.AddAspNetCoreInstrumentation());
+    .WithTracing(builder => builder.AddAspNetCoreInstrumentation())
+    .WithMetrics(builder => builder.AddAspNetCoreInstrumentation());
 ```
 
 #### 4. Validação de Schema XML
@@ -814,14 +814,14 @@ builder.Services.AddOpenTelemetry()
 name: CI
 on: [push]
 jobs:
-&nbsp; build:
-&nbsp;   runs-on: ubuntu-latest
-&nbsp;   steps:
-&nbsp;     - uses: actions/checkout@v2
-&nbsp;     - name: Setup .NET
-&nbsp;       uses: actions/setup-dotnet@v1
-&nbsp;     - name: Test
-&nbsp;       run: dotnet test
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+      - name: Test
+        run: dotnet test
 ```
 
 #### 10. Documentação Adicional
@@ -845,8 +845,8 @@ jobs:
 ```csharp
 var settings = new XmlReaderSettings
 {
-&nbsp;   DtdProcessing = DtdProcessing.Prohibit,
-&nbsp;   XmlResolver = null
+    DtdProcessing = DtdProcessing.Prohibit,
+    XmlResolver = null
 };
 ```
 
